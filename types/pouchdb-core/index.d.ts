@@ -6,6 +6,7 @@
 
 /// <reference types="node" />
 /// <reference types="debug" />
+/// <reference types="pouchdb-find" />
 
 // TODO: Fixing this lint error will require a large refactor
 /* tslint:disable:no-single-declare-module */
@@ -313,6 +314,11 @@ declare namespace PouchDB {
              * Note: options.filter must be set to '_view' for this option to work.
              */
             view?: string;
+            
+            /**
+             * Filter using a query/pouchdb-find selector. Note: Selectors are not supported in CouchDB 1.x.
+             */
+            selector?: Find.Selector; 
         }
 
         interface ChangesResponseChange<Content extends {}> {
